@@ -57,7 +57,7 @@ async function displaySinglePostFromRssFeedByGuid(postGuid) {
 				<p class="substack-post-content">${content}</p>
 			`;
 
-        // Set the title of the page dynamically based on the post title.
+        // Set the title of the post page dynamically based on the post title.
         document.title = document.title.replace("{Post}", title);
 
         // Remove the last empty paragraph. Not sure why Substack sends this.
