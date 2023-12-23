@@ -19,13 +19,13 @@
 				<li><a href="https://www.linkedin.com/in/jboyer87/" target="_blank">LinkedIn</a></li>
 			</ul>
 		</nav>
-		<section id="substack-feed"></section>
+		<section id="substack-feed-single"></section>
 		<footer class="footer">
 			<p id="copyright">&copy; <span id="year"></span> James J. Boyer</p>
 		</footer>
 	</main>
 	<script>
-		displayRssFeed().then(unlinkSubstackImages);
+		displaySinglePostFromRssFeedByGuid(getPostGuid()).then(unlinkSubstackImages);
 	</script>
 </body>
 

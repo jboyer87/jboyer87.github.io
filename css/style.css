@@ -1,0 +1,261 @@
+/* Import Google Fonts with light, medium, and bold weights */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,500&family=Figtree:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Montserrat:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,500&display=swap');
+
+
+/* Colors */
+
+:root {
+	/* Sage Green (Primary Color): */
+	--primary-color: hsl(162, 38%, 25%);
+	/* Dusty Green (Accent Color): */
+	--accent-color: hsl(163, 25%, 36%);
+	/* Dusty Pink (Limited Accent Color): */
+	--accent-color-alt: hsl(340, 30%, 70%);
+	/* Light Green (Neutral for Backgrounds): */
+	--background-color: hsl(162, 28%, 85%);
+	/* Lighter Charcoal (For Larger Text and Contrast): */
+	--text-primary-color: #444444;
+	/* Deep Charcoal (For Text and Contrast): */
+	--text-darker-color: #2a2a2a;
+	/* Light Backgrounds/Elements): */
+	--surface-color: hsl(162, 10%, 95%);
+}
+
+
+/* Basic Reset */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.loaded {
+	opacity: 1;
+}
+
+body {
+	font-family: 'Lato', sans-serif;
+	background-color: var(--background-color);
+	color: var(--text-primary-color);
+	line-height: 1.5;
+	padding: 1.25em;
+	font-size: 16px;
+	/* Base font size in pixels */
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: var(--text-darker-color);
+	font-family: 'Figtree', sans-serif;
+	font-weight: 400;
+	margin-top: 1.25em;
+	margin-bottom: .50em;
+}
+
+h1 a:link, h2 a:link, h3 a:link, h4 a:link, h5 a:link, h6 a:link {
+	text-decoration: none;
+
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h3 {
+	font-size: 1.5em;
+}
+
+/* Italic text styling */
+i, em {
+	font-style: italic;
+	font-family: 'Lato', sans-serif;
+}
+
+p {
+	margin-bottom: 1em;
+	/* Space after paragraphs for better vertical rhythm */
+}
+
+footer {
+	text-align: center;
+	padding: 1em;
+	color: var(--text-primary-color);
+	position: relative;
+	bottom: 0;
+	width: 100%;
+}
+
+footer #copyright {
+	font-family: 'Figtree', sans-serif;
+	font-weight: 300;
+}
+
+.main-container {
+	margin: 0 auto;
+	max-width: 800px;
+	width: 100%;
+}
+
+.top-nav {
+	display: flex;
+	flex-wrap: wrap;
+	/* Allows items to wrap onto the next line */
+	justify-content: space-between;
+	align-items: center;
+	/* Vertical alignment */
+	padding: 1em;
+}
+
+.nav-title, .nav-title a {
+	text-align: left;
+	font-family: 'Figtree', sans-serif;
+	font-size: 1.75em;
+	font-weight: 500;
+	text-decoration: none !important;
+}
+
+ul.nav-links {
+	list-style: none;
+}
+
+.nav-links {
+	flex: 1 1 auto;
+	/* Flexibility for nav links */
+	display: flex;
+	justify-content: flex-end;
+	/* Aligns links to the right */
+}
+
+.nav-links a {
+	font-family: 'Figtree', sans-serif;
+	font-size: 1em;
+	font-weight: 500;
+	margin-left: 1em;
+	color: var(--text-primary-color);
+	text-decoration: none !important;
+}
+
+
+.nav-links a:is(:hover, :focus, :active), .nav-links a:visited:is(:hover, :focus, :active),
+a.nav-title:is(:hover, :focus, :active), a.nav-title:visited:is(:hover, :focus, :active) {
+	color: var(--accent-color);
+	text-decoration: underline;
+}
+
+a:link, a:visited {
+	color: var(--text-primary-color);
+	text-decoration: underline;
+}
+
+a:hover, a:visited:hover a:focus, a:visited:focus {
+	color: var(--accent-color-alt);
+	text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+	.nav-title, .nav-links {
+		flex-basis: 100%;
+		/* Full width in mobile view */
+		text-align: center;
+		/* Center align the title */
+	}
+
+	.nav-title {
+		margin-bottom: .5em;
+		/* Additional space below title for mobile */
+	}
+
+	.nav-links {
+		display: flex;
+		justify-content: center;
+		/* Center-align links */
+		padding-left: 0;
+		/* emove any default padding */
+		margin: 0 auto;
+		/* Centering the block */
+		flex-direction: column;
+		/* Stack links vertically */
+	}
+
+	.nav-links a {
+		margin-left: 0;
+		/* emove margin to ensure center alignment */
+		margin-bottom: 0.5em;
+		/* Space between links */
+	}
+}
+
+article {
+	background-color: var(--surface-color);
+	border-radius: 0 0 0.3125em 0.3125em;
+	box-shadow: 0 0.125em 0.3125em rgba(0, 0, 0, 0.1);
+	padding: 1.25em 1.75em;
+	margin: 0 auto 1.25em auto;
+	max-width: 800px;
+	width: 100%;
+	margin-bottom: 1.25em;
+	padding-bottom: 1.25em;
+	border-top: 0.25em solid var(--accent-color);
+}
+
+article .substack-post-description {
+	font-family: 'Lato', sans-serif;
+	color: var(--text-darker-color);
+	font-size: 1.15em;
+	margin-top: 0.5em;
+	margin-bottom: 1em;
+	font-weight: 400;
+	line-height: 1.4;
+}
+
+article .substack-post-date {
+	font-family: 'Lato', sans-serif;
+	color: var(--accent-color);
+	font-size: .9em;
+	text-transform: uppercase;
+	font-weight: 700;
+	line-height: 1.4;
+}
+
+article p {
+	font-family: 'Lato', sans-serif;
+	color: var(--text-primary-color);
+	font-size: 1em;
+}
+
+article ul, article ol {
+	padding-left: 2em;
+	margin-bottom: 1em;
+}
+
+li>p {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+article img {
+	max-width: 100%;
+	max-height: 50vh;
+	height: auto;
+	display: block;
+	margin: 0 auto 1em auto;
+	object-fit: contain;
+}
+
+.image-link-expand {
+	display: none;
+}
+
+article:first-child h2 {
+	margin-top: 0;
+}
+
+/* Last item in the feed should not have a border */
+#substack-feed article:last-child {
+	border-bottom: none;
+}
