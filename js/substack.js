@@ -25,6 +25,7 @@ async function fetchSubstackRssFeed(substackUrl) {
  */
 async function displaySinglePostFromRssFeedByGuid(postGuid) {
   const substackUrl = "https://jamesjboyer.substack.com/feed";
+  const substackSlugUrl = `https://jamesjboyer.substack.com/p/${postGuid}`;
   try {
     const feedXml = await fetchSubstackRssFeed(substackUrl);
     const feedElement = document.getElementById("substack-feed-single");
@@ -36,7 +37,7 @@ async function displaySinglePostFromRssFeedByGuid(postGuid) {
 
     items.forEach((item) => {
       // Find the item with the given GUID -- this is the post we want.
-      if (item.querySelector("guid").textContent == postGuid) {
+      if (item.querySelector("guid").textContent == substackSlugUrl) {
         const title = item.querySelector("title").textContent;
         const description = item.querySelector("description").textContent;
         // Fetching the 'content:encoded' element.
@@ -86,7 +87,8 @@ async function displayRssFeed() {
     const items = xmlDoc.querySelectorAll("item");
 
     items.forEach((item) => {
-      const guid = item.querySelector("guid").textContent;
+      const guid = item.querySelector("guid").textContent.split("/p/")[1];
+
       const title = item.querySelector("title").textContent;
       const description = item.querySelector("description").textContent;
 
@@ -97,7 +99,7 @@ async function displayRssFeed() {
       // Create the element
       const itemElement = document.createElement("article");
       itemElement.innerHTML = `
-		<h2><a href="post.html?guid=${guid}">${title}</a></h2>
+		<h2><a href="post.html?id=${guid}">${title}</a></h2>
 		<p class="substack-post-date">${formattedDate}</p>
 		<p class="substack-post-description">${description}</p>
 	`;
@@ -139,7 +141,15 @@ function formatDate(dateString) {
 
 function getPostGuid() {
   const urlParams = new URLSearchParams(window.location.search);
-  const postGuid = urlParams.get("guid");
+  const postGuid = urlParams.get("id");
+
+  if (postGuid) {
+    // Split the URL by '/p/' and get just the slug.
+    const parts = postGuid.split("/p/");
+    if (parts.length > 1) {
+      return parts[1];
+    }
+  }
 
   return postGuid;
 }
