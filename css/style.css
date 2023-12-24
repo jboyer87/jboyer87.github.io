@@ -123,7 +123,7 @@ article img {
 	object-fit: contain;
 }
 
-article:first-child h2 {
+article h2 {
 	margin-top: 0;
 }
 
