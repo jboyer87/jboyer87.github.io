@@ -39,6 +39,15 @@ a:hover, a:visited:hover a:focus, a:visited:focus {
 	color: var(--accent-color-alt);
 }
 
+a.footnote-anchor {
+	color: var(--accent-color);
+	font-family: var(--body-font-family);
+	font-size: 0.8em;
+	font-weight: 700;
+	line-height: 1.4;
+	vertical-align: super;
+}
+
 #alerts {
 	background-color: var(--surface-color);
 	border-radius: 0 0 0.3125em 0.3125em;
@@ -84,6 +93,31 @@ article {
 	padding: 1.25em 1.75em;
 	width: 100%;
 }
+
+/* add a border to the first footnote inside of article */
+.footnote:first-of-type {
+	border-top: .1rem solid var(--accent-color);
+	margin-top: 2em;
+	padding-top: 2em;
+}
+
+.footnote {
+	align-items: start;
+	display: flex;
+	font-size: .9em;
+	margin-bottom: 1rem;
+}
+
+.footnote-number {
+	flex-shrink: 0;
+	font-size: .9em;
+	margin-right: 1rem;
+}
+
+.footnote-content {
+	flex-grow: 1;
+}
+
 
 article .substack-post-description {
 	color: var(--text-darker-color);
