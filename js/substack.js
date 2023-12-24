@@ -161,6 +161,7 @@ async function displaySinglePostFromRssFeedBySlug(postSlug) {
       feedElement.innerHTML = "";
       feedElement.appendChild(itemElement);
       unlinkSubstackImages();
+      removeSubscriptionWidgets();
     } else {
       displayErrorMessage("The requested post could not be found.");
     }
@@ -189,6 +190,17 @@ function unlinkSubstackImages() {
       // Replace the link with just the image element
       parentLink.parentNode.replaceChild(img.cloneNode(true), parentLink);
     }
+  });
+}
+/**
+ * Removes the Substack subscription widgets from the page.
+ */
+function removeSubscriptionWidgets() {
+  const subscriptionWidgets = document.querySelectorAll(
+    ".subscription-widget-wrap"
+  );
+  subscriptionWidgets.forEach((widget) => {
+    widget.remove();
   });
 }
 
