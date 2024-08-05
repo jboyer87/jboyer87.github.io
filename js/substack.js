@@ -197,7 +197,7 @@ function unlinkSubstackImages() {
  */
 function removeSubscriptionWidgets() {
   const subscriptionWidgets = document.querySelectorAll(
-    ".subscription-widget-wrap"
+    "[class^='subscription-widget']"
   );
   subscriptionWidgets.forEach((widget) => {
     widget.remove();
