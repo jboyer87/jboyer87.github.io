@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns {Promise<string>} - The fetched RSS feed data as text.
  */
 async function fetchSubstackRssFeed(substackUrl) {
-  const proxyUrl = new URL("https://corsproxy.io/?");
+  const proxyUrl = new URL("https://corsproxy.io/?url=");
   proxyUrl.href += encodeURIComponent(substackUrl);
 
   try {
