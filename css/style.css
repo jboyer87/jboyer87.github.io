@@ -176,6 +176,13 @@ body.loaded {
 	opacity: 1;
 }
 
+figure figcaption {
+	font-family: var(--body-font-family);
+	font-size: 0.8em;
+	margin-bottom: .5em;
+	text-align: center;
+}
+
 footer {
 	bottom: 0;
 	color: var(--text-primary-color);
