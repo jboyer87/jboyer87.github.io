@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns {Promise<string>} - The fetched RSS feed data as text.
  */
 async function fetchSubstackRssFeed(substackUrl) {
-  const proxyUrl = new URL("https://corsproxy.io/?url=");
+  const proxyUrl = new URL("https://proxy.killcors.com/?url=");
   proxyUrl.href += encodeURIComponent(substackUrl);
 
   try {
@@ -60,7 +60,7 @@ function parseRssFeed(feedXml) {
 function createFeedItemElement(
   feedItem,
   includeLink = true,
-  includeContent = false
+  includeContent = false,
 ) {
   const itemElement = document.createElement("article");
   const formattedDate = formatDate(feedItem.pubDate);
@@ -153,7 +153,7 @@ async function displaySinglePostFromRssFeedBySlug(postSlug) {
     const feedElement = document.getElementById("substack-feed-single");
 
     const matchedItem = feedItems.find(
-      (item) => extractSlugFromGuid(item.guid) === postSlug
+      (item) => extractSlugFromGuid(item.guid) === postSlug,
     );
     if (matchedItem) {
       const itemElement = createFeedItemElement(matchedItem, false, true);
@@ -168,7 +168,7 @@ async function displaySinglePostFromRssFeedBySlug(postSlug) {
   } catch (error) {
     console.error("Error displaying specific RSS feed post:", error);
     displayErrorMessage(
-      "Failed to load the specific post. Please try again later."
+      "Failed to load the specific post. Please try again later.",
     );
   }
 }
@@ -180,7 +180,7 @@ async function displaySinglePostFromRssFeedBySlug(postSlug) {
  */
 function unlinkSubstackImages() {
   const linkedImages = document.querySelectorAll(
-    "a[href*='substackcdn.com'] img"
+    "a[href*='substackcdn.com'] img",
   );
 
   linkedImages.forEach((img) => {
@@ -197,7 +197,7 @@ function unlinkSubstackImages() {
  */
 function removeSubscriptionWidgets() {
   const subscriptionWidgets = document.querySelectorAll(
-    "[class^='subscription-widget']"
+    "[class^='subscription-widget']",
   );
   subscriptionWidgets.forEach((widget) => {
     widget.remove();
