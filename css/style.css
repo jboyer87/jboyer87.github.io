@@ -94,6 +94,25 @@ article {
 	width: 100%;
 }
 
+article blockquote {
+	border-left: 3px solid var(--accent-color);
+	margin: 1.5em 0;
+	padding: 0.25em 0 0.25em 1.25em;
+}
+
+article blockquote p {
+	color: var(--text-darker-color);
+	font-style: italic;
+}
+
+article hr {
+	border: none;
+	border-top: 2px solid var(--accent-color);
+	margin: 2em auto;
+	opacity: 0.4;
+	width: 4rem;
+}
+
 /* add a border to the first footnote inside of article */
 .footnote:first-of-type {
 	border-top: .1rem solid var(--accent-color);
