@@ -13,11 +13,10 @@ document.addEventListener("DOMContentLoaded", function () {
  * @returns {Promise<string>} - The fetched RSS feed data as text.
  */
 async function fetchSubstackRssFeed(substackUrl) {
-  const proxyUrl = new URL("https://proxy.killcors.com/?url=");
-  proxyUrl.href += encodeURIComponent(substackUrl);
+  const workerUrl = "https://substackfeed.aesthetics1.workers.dev/";
 
   try {
-    const response = await fetch(proxyUrl);
+    const response = await fetch(workerUrl);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
